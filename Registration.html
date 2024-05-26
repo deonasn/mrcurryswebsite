@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="./css/styles.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="./js/RegistrationFormValidity.js"></script>
+    <title>Sign-up</title>
+</head>
+<body onload="registerHandlers()">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Anoth</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="homePage.html" target="_blank">HOME</a></li>
+                    <li class="active"><a href="Registration.html" target="_parent">SIGN-UP</a></li>
+                    <li><a href="Pictures.html" target="_blank">PICTURES</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <h1>Mr. Currys Indian Restaurant</h1>
+    <h4>Sign-up Page</h4>
+    <hr><br>
+
+    <form name="regForm" method="GET" novalidate>
+        <div class="container-fluid text-center">
+            <div class="row content">
+                <form method="POST">
+                    <div class="row">
+                        <div class="form-group">
+                            <label for="user_name" class="required">Username:</label><br>
+                            <input id="user_name" type="text" name="user_name" placeholder="username" required/>
+                            <span id="un_Err" class="help-block hide">Please enter a username.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="required">Password:</label><br>
+                            <input id="password" type="password" name="password" placeholder="********" required/>
+                            <span id="passErr" class="help-block hide">Please enter a valid password.</span>
+                            <span id="cap_Err" class="help-block hide">Enter at least one upper-case letter.</span>
+                            <span id="small_Err" class="help-block hide">Enter at least one lower-case letter.</span>
+                            <span id="num_Err" class="help-block hide">Enter at least one number.</span>
+                            <span id="spec_Err" class="help-block hide">Enter at least one special character.</span>
+                            <span id="min_Err" class="help-block hide">Minimum of 8 spaces required.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="repeat_password" class="required">Repeat Password:</label><br>
+                            <input id="repeat_password" type="password" name="repeat_password" placeholder="********" required/>
+                            <span id="r_passErr" class="help-block hide">The passwords does not match.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="first_name" class="required">First Name:</label><br>
+                            <input id="first_name" type="text" name="first_name" placeholder="John" required/>
+                            <span id="fn_Err" class="help-block hide">Enter your first name.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="last_name" class="required">Last Name:</label><br>
+                            <input id="last_name" type="text" name="last_name" placeholder="Wick" required/>
+                            <span id="ln_Err" class="help-block hide">Enter your last name.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="ph_n" class="required">Phone Number:</label><br>
+                            <input id="ph_n" type="text" name="ph_n" placeholder="(xxx)-xxx-xxxx" required>
+                            <span id="ph_Err" class="help-block hide">Enter a valid phone number.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="required">Email:</label><br>
+                            <input id="email" type="text" name="email" placeholder="username@domain.com" required>
+                            <span id="email_Err" class="help-block hide">Please enter a valid email!</span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group text-center">
+                        <input id="submit" type="submit" value="Submit" class="btn btn-primary"/>
+                        <input type="reset" value="Reset" class="btn btn-info"/>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
