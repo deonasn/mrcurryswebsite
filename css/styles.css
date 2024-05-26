@@ -1,0 +1,221 @@
+body
+{
+    background-color: whitesmoke;
+}
+
+h1
+{
+    text-align: center;
+    font-size: 40px;
+    text-decoration: underline;
+    color: darkgreen;
+    text-shadow: darkgreen;
+}
+
+h2
+{
+    color: red;
+    text-align: center;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+h3
+{
+    text-align: center;
+    font-size: 19px;
+    color: #555;
+}
+
+h4
+{
+    text-align: center;
+    font-size: 30px;
+    color: dodgerblue;
+    margin-top: 32px;
+    text-transform: uppercase;
+}
+
+h5
+{
+    font-size: 18px;
+}
+
+.main_logo
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 330px;
+}
+
+.navbar
+{
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.navbar-inverse
+{
+    background-color: darkgreen;
+    border-color: darkgreen;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover
+{
+    color: whitesmoke;
+    background-color: green;
+}
+
+.navbar-inverse .navbar-nav>li>a
+{
+    color: yellow;
+}
+
+.navbar-inverse .navbar-toggle
+{
+    border-color: yellow;
+}
+
+.navbar-inverse .navbar-brand
+{
+    color: darkred;
+}
+
+.row.content
+{
+    height: 450px
+}
+
+.sidenav
+{
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+}
+
+footer
+{
+    background-color: darkred;
+    color: yellow;
+    padding: 22px;
+}
+
+#map_directions
+{
+    text-align: center;
+    font-size: 21px;
+    color: dodgerblue;
+}
+
+#sm_web_sites
+{
+    color: dodgerblue;
+}
+
+#fb
+{
+    color: lightskyblue;
+}
+#yt
+{
+    color: lightskyblue;
+}
+
+@media screen and (max-width: 767px)
+{
+    .sidenav
+    {
+        height: auto;
+        padding: 15px;
+    }
+    .row.content
+    {
+        height:auto;
+    }
+}
+
+#user_name
+{
+    height: 28px;
+    border-radius: 3px;
+    border-width: 1px;
+}
+#password
+{
+    height: 28px;
+    border-radius: 3px;
+    border-width: 1px;
+}
+#repeat_password
+{
+    height: 28px;
+    border-radius: 3px;
+    border-width: 1px;
+}
+#first_name
+{
+    height: 28px;
+    border-radius: 3px;
+    border-width: 1px;
+}
+#last_name
+{
+    height: 28px;
+    border-radius: 3px;
+    border-width: 1px;
+}
+#ph_n
+{
+    height: 28px;
+    border-radius: 3px;
+    border-width: 1px;
+}
+#email
+{
+    height: 28px;
+    border-radius: 3px;
+    border-width: 1px;
+}
+#add_l1
+{
+    height: 28px;
+    border-radius: 3px;
+    border-width: 1px;
+}
+#add_l2
+{
+    height: 28px;
+    border-radius: 3px;
+    border-width: 1px;
+}
+#city
+{
+    height: 28px;
+    border-radius: 3px;
+    border-width: 1px;
+}
+#state
+{
+    height: 28px;
+    border-radius: 3px;
+    border-width: 1px;
+}
+#zipcode
+{
+    height: 28px;
+    border-radius: 3px;
+    border-width: 1px;
+}
+#d_o_b
+{
+    height: 28px;
+    border-radius: 3px;
+    border-width: 1px;
+}
+
+.required::after
+{
+    content: " *";
+    color: red;
+}
