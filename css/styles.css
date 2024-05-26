@@ -177,42 +177,6 @@ footer
     border-radius: 3px;
     border-width: 1px;
 }
-#add_l1
-{
-    height: 28px;
-    border-radius: 3px;
-    border-width: 1px;
-}
-#add_l2
-{
-    height: 28px;
-    border-radius: 3px;
-    border-width: 1px;
-}
-#city
-{
-    height: 28px;
-    border-radius: 3px;
-    border-width: 1px;
-}
-#state
-{
-    height: 28px;
-    border-radius: 3px;
-    border-width: 1px;
-}
-#zipcode
-{
-    height: 28px;
-    border-radius: 3px;
-    border-width: 1px;
-}
-#d_o_b
-{
-    height: 28px;
-    border-radius: 3px;
-    border-width: 1px;
-}
 
 .required::after
 {
