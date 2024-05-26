@@ -9,7 +9,7 @@ h1
     font-size: 40px;
     text-decoration: underline;
     color: darkgreen;
-    text-shadow: darkgreen;
+    /text-shadow: darkgreen;
 }
 
 h2
