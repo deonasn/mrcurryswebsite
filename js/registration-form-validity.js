@@ -1,13 +1,25 @@
-function registerHandlers()
-{
-    document.getElementById("user_name").onkeyup = validate_un;
-    document.getElementById("password").onkeyup = fPass_V;
-    document.getElementById("repeat_password").onkeyup = PassValidate;
-    document.getElementById("password").onblur = PassValidate;
-    document.getElementById("first_name").onkeyup = fn_Validate;
-    document.getElementById("last_name").onkeyup = ln_Validate;
-    document.getElementById("ph_n").onkeyup = PhoneFormat;
-    document.getElementById("email").onkeyup = EmailValidate;
+function attachEventListener(elementId, event, handler) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.addEventListener(event, handler);
+    }
+}
+
+function registerHandlers() {
+    const eventHandlers = [
+        { id: "user_name", event: "input", handler: validate_un },
+        { id: "password", event: "input", handler: fPass_V },
+        { id: "repeat_password", event: "input", handler: PassValidate },
+        { id: "password", event: "blur", handler: PassValidate },
+        { id: "first_name", event: "input", handler: fn_Validate },
+        { id: "last_name", event: "input", handler: ln_Validate },
+        { id: "ph_n", event: "input", handler: PhoneFormat },
+        { id: "email", event: "input", handler: EmailValidate },
+    ];
+
+    eventHandlers.forEach(({ id, event, handler }) => {
+        attachEventListener(id, event, handler);
+    });
 }
 
 function validate_un() {
