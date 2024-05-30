@@ -17,6 +17,7 @@ function registerHandlers() {
         { id: "email", event: "input", handler: EmailValidate },
     ];
 
+    // Attach event listeners to elements
     eventHandlers.forEach(({ id, event, handler }) => {
         attachEventListener(id, event, handler);
     });
@@ -26,13 +27,24 @@ function validate_un() {
     const un_Input = document.getElementById("user_name");
     const username = un_Input.value;
     const un_Err = document.getElementById("un_Err");
-    if (username === "" || username.length < 6 || username.length > 50)
+
+    // Check if username contains spaces
+    const hasSpace = /\s/.test(username);
+
+    if (username === "" || username.length < 6 || username.length > 50 || hasSpace)
     {
         if (un_Err)
         {
             un_Err.classList.remove("hide");
             un_Err.classList.add("show");
             un_Err.style.color = "darkred";
+
+            // Update error message for spaces
+            if (hasSpace) {
+                un_Err.textContent = "Username cannot contain spaces.";
+            } else {
+                un_Err.textContent = "Username must be between 6 and 50 characters.";
+            }
         }
         un_Input.style.borderRadius = "4px";
         un_Input.style.borderInlineWidth = "5px";
