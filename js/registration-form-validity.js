@@ -5,6 +5,7 @@ function attachEventListener(elementId, event, handler) {
     }
 }
 
+// RegisterHandlers and eventHandlers - when to pass the validation functions
 function registerHandlers() {
     const eventHandlers = [
         { id: "user_name", event: "input", handler: validate_un },
@@ -23,6 +24,7 @@ function registerHandlers() {
     });
 }
 
+// Validates the username input
 function validate_un() {
     const un_Input = document.getElementById("user_name");
     const username = un_Input.value;
@@ -31,6 +33,7 @@ function validate_un() {
     // Check if username contains spaces
     const hasSpace = /\s/.test(username);
 
+    // Check for username validity: non-empty, 6-50 characters, no spaces
     if (username === "" || username.length < 6 || username.length > 50 || hasSpace)
     {
         if (un_Err)
@@ -64,6 +67,8 @@ function validate_un() {
         return true;
     }
 }
+
+// Validates the password input
 function fPass_V()
 {
     const pswd_input = document.getElementById("password");
@@ -79,6 +84,8 @@ function fPass_V()
     const num_Err = document.getElementById("num_Err");
     const spec_Err = document.getElementById("spec_Err");
     const min_Err = document.getElementById("min_Err");
+
+    // Check if password meets complexity requirements
     if (!pswd_pattern.test(pswd))
     {
         if (pswdErr) {
@@ -89,6 +96,8 @@ function fPass_V()
         pswd_input.style.borderRadius = "4px";
         pswd_input.style.borderInlineWidth = "4px";
         pswd_input.style.borderColor = "orangered";
+
+        // Check or uppercase letters
         if (!cap_pattern.test(pswd))
         {
             if (cap_Err)
@@ -106,6 +115,8 @@ function fPass_V()
                 cap_Err.classList.remove("show");
             }
         }
+
+        // Check for lowercase letters
         if (!small_pattern.test(pswd))
         {
             if (small_Err)
@@ -123,6 +134,8 @@ function fPass_V()
                 small_Err.classList.remove("show");
             }
         }
+
+        // Check for numbers
         if (!num_pattern.test(pswd))
         {
             if (num_Err)
@@ -140,6 +153,8 @@ function fPass_V()
                 num_Err.classList.remove("show");
             }
         }
+
+        // Check for special characters
         if (!spec_pattern.test(pswd))
         {
             if (spec_Err)
@@ -157,6 +172,8 @@ function fPass_V()
                 spec_Err.classList.remove("show");
             }
         }
+
+        // Check for miniumum length - 8
         if (pswd.length < 8)
         {
             if (min_Err)
@@ -175,6 +192,7 @@ function fPass_V()
             }
         }
     } else {
+        // Checking if all requirements are met for the Password
         if (pswdErr) {
             pswdErr.classList.add("hide");
             pswdErr.classList.remove("show");
@@ -182,6 +200,8 @@ function fPass_V()
         pswd_input.style.borderRadius = "4px";
         pswd_input.style.borderInlineWidth = "1px";
         pswd_input.style.borderColor = "lawngreen";
+
+        // Hiding individual error messages if requirements are met
         if (cap_pattern.test(pswd))
         {
             if (cap_Err)
@@ -225,6 +245,7 @@ function fPass_V()
     }
 }
 
+// Validates that the repeated password matches the original password
 function PassValidate() {
     const pswd_input = document.getElementById("password");
     const r_pswd_input = document.getElementById("repeat_password");
@@ -232,6 +253,8 @@ function PassValidate() {
     const r_pswd = r_pswd_input.value;
     const pswdErr = document.getElementById("passErr");
     const r_Error = document.getElementById("r_passErr");
+
+    // Check if repeated password matches the original
     if (r_pswd !== pswd || pswd === "")
     {
         if (r_Error)
@@ -263,10 +286,13 @@ function PassValidate() {
     }
 }
 
+// Validates the first name input
 function fn_Validate() {
     const fn_Input = document.getElementById("first_name");
     const first_name = fn_Input.value;
     const fn_Err = document.getElementById("fn_Err");
+
+    // Check if first name is not empty and within length limit
     if (first_name === "" || first_name.length > 50)
     {
         if (fn_Err)
@@ -292,10 +318,13 @@ function fn_Validate() {
     }
 }
 
+// Validates the last name input
 function ln_Validate() {
     const ln_Input = document.getElementById("last_name");
     const last_name = ln_Input.value;
     const ln_Err = document.getElementById("ln_Err");
+
+    // Check if last name is not empty and within length limit
     if (last_name === "" || last_name.length > 50)
     {
         if (ln_Err)
@@ -321,24 +350,36 @@ function ln_Validate() {
     }
 }
 
+// Formats and validates the phone number input
 function PhoneFormat() {
     const ph_Input = document.getElementById("ph_n");
     let phEle = ph_Input.value.replace(/\D/g, "");
     const ph_Err = document.getElementById("ph_Err");
+
+    // Limit the number of digits to 10
+    if (phEle.length > 10) {
+        phEle = phEle.substring(0, 10);
+    }
+
+    // Format the phone number as (xxx) xxx-xxxx
     if (phEle.length > 3 && phEle.length <= 10)
     {
         if (phEle.length > 3 && phEle.length <= 6)
         {
-            phEle = phEle.substring(0, 3) + "-" + phEle.substring(3);
+            phEle = "(" + phEle.substring(0, 3) + ") " + phEle.substring(3);
         }
         else if (phEle.length > 6 && phEle.length <= 10)
         {
-            phEle = phEle.substring(0, 3) + "-" + phEle.substring(3, 6) + "-" + phEle.substring(6);
+            phEle = "(" + phEle.substring(0, 3) + ") " + phEle.substring(3, 6) + "-" + phEle.substring(6);
         }
     }
-    ph_Input.value = phEle;
+
+    ph_Input.value = phEle;     // Update the input field with the formatted value
     let ph_n = ph_Input.value;
-    if (ph_n.length !== 12)
+    const phonePattern = /^\(\d{3}\)-\d{3}-\d{4}$/;     // Regular expression for (xxx) xxx-xxxx format
+
+    // Validate the phone number format according to phonePattern
+    if (!phonePattern.test(ph_n))
     {
         if (ph_Err)
         {
@@ -365,11 +406,14 @@ function PhoneFormat() {
     }
 }
 
+// Validates the email input
 function EmailValidate() {
     const email_Input = document.getElementById("email");
     const email = email_Input.value;
     const emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
     const email_Err = document.getElementById("email_Err");
+
+    // Validate the email format
     if (!emailPattern.test(email))
     {
         if (email_Err)
@@ -395,5 +439,7 @@ function EmailValidate() {
         email_Input.style.borderColor = "lawngreen";
         return true;
     }
-
 }
+
+// Call registerHandlers when the window loads
+window.onload = registerHandlers;
