@@ -11,7 +11,7 @@ function registerHandlers() {
         { id: "user_name", event: "input", handler: validate_un },
         { id: "password", event: "input", handler: fPass_V },
         { id: "repeat_password", event: "input", handler: PassValidate },
-        { id: "password", event: "blur", handler: PassValidate },
+        { id: "password", event: "onblur", handler: PassValidate },
         { id: "first_name", event: "input", handler: fn_Validate },
         { id: "last_name", event: "input", handler: ln_Validate },
         { id: "ph_n", event: "input", handler: PhoneFormat },
@@ -255,7 +255,7 @@ function PassValidate() {
     const r_Error = document.getElementById("r_passErr");
 
     // Check if repeated password matches the original
-    if (r_pswd !== pswd || pswd === "")
+    if (r_pswd !== pswd || (r_pswd !== "" && pswd === ""))
     {
         if (r_Error)
         {
